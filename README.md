@@ -1,36 +1,21 @@
 # Opposed-Piston Surrogate Local
 
-Offline engine-cycle surrogate for opposed-piston efficiency, emissions, and calibration tradeoffs.
-
-This is a local-first, synthetic-data prototype inspired by a company-specific project plan for **Achates Power**. It is built to demonstrate the engineering shape of `OPSurrogate` without private data, credentials, external APIs, or hosted services.
-
-## Why it matters
-
 Opposed-piston licensing needs fast, credible what-if exploration across fuel, load, emissions, and thermal constraints.
 
-## What it does
+The implementation is a laptop-scale proof of the workflow behind that claim, with `engine point` fixtures and falsifiable gates.
 
-- Generates deterministic synthetic `engine point` scenarios.
-- Scores each scenario against domain-specific quality gates.
-- Produces evidence-backed findings for realistic failure modes.
-- Writes a static dashboard, JSON reports, benchmark output, and a portable demo pack.
-- Exposes a JSONL tool loop for local agent integration.
+## Engineering read
 
-## Metrics
+Offline engine-cycle surrogate for opposed-piston efficiency, emissions, and calibration tradeoffs.
 
-- `nox_reduction`
-- `bsfc_delta`
-- `thermal_margin`
-- `calibration_stability`
+## What is measured
 
-## Failure modes
+- Compiles 180 replayable `engine point` fixtures that make the `OPSurrogate` assumptions observable.
+- Treats `nox_reduction`, `bsfc_delta`, `thermal_margin`, and `calibration_stability` as release gates, not dashboard decoration.
+- Plants degraded cases for `nox_spike`, `thermal_limit`, `fuel_map_hole`, and `transient_smoke` and checks whether the harness catches them.
+- Exports the `Opposed-Piston Surrogate Local` run as structured reports, static HTML, benchmark numbers, and a shareable package.
 
-- `nox_spike`
-- `thermal_limit`
-- `fuel_map_hole`
-- `transient_smoke`
-
-## Quickstart
+## One-pass run
 
 ```bash
 uv sync --extra dev
@@ -42,7 +27,7 @@ uv run op-surrogate benchmark --iterations 100
 uv run op-surrogate export-demo-pack
 ```
 
-## Expected outputs
+## Evidence packet
 
 - `data/scenarios.json`
 - `outputs/summary.json`
@@ -52,7 +37,7 @@ uv run op-surrogate export-demo-pack
 - `outputs/benchmark.json`
 - `outputs/demo-pack.zip`
 
-## Validation
+## Checks
 
 ```bash
 uv run ruff check .
@@ -62,6 +47,6 @@ uv run op-surrogate verify
 uv run op-surrogate benchmark --iterations 100
 ```
 
-## Demo hook
+## No-secrets boundary
 
-A calibration map reveals the Pareto frontier between NOx, brake-specific fuel consumption, and thermal margin.
+The `opposed-piston-surrogate-local` public surface is source, tests, lockfile, and docs. It does not need credentials, browser state, customer records, or hosted services.
