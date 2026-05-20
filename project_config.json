@@ -2,12 +2,12 @@
   "repo": "opposed-piston-surrogate-local",
   "package": "opposed_piston_surrogate_local",
   "cli": "op-surrogate",
-  "company": "Achates Power",
+  "company": "Opposed-Piston Surrogate Local",
   "title": "Opposed-Piston Surrogate Local",
   "tagline": "Offline engine-cycle surrogate for opposed-piston efficiency, emissions, and calibration tradeoffs.",
   "problem": "Opposed-piston licensing needs fast, credible what-if exploration across fuel, load, emissions, and thermal constraints.",
   "project": "OPSurrogate",
-  "plan_slug": "achates-power",
+  "plan_slug": "opposed-piston-surrogate",
   "scenario": "engine point",
   "fixture_count": 180,
   "clean_count": 45,
@@ -25,8 +25,6 @@
   ],
   "wow": "A calibration map reveals the Pareto frontier between NOx, brake-specific fuel consumption, and thermal margin.",
   "sources": [
-    "https://achatespower.com/",
-    "https://achatespower.com/approach/",
-    "https://achatespower.com/achates-power-continues-development-of-opposed-piston-technology-for-us-army-vehicles-green-car-congress/"
+    "local-synthetic-fixture"
   ]
 }
